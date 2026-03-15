@@ -53,10 +53,14 @@ def delete_note(token, note_id):
 
 if __name__ == "__main__":
     # 1. Registrar usuario
-    register_user("alexdesousa", "D1n054uR1o")
+    # register_user("alexdesousa", "D1n054uR1o") # Usuario usado en pruebas
+    # register_user("alexdesousa02", "D1n054uR1o") # Usuario usado en pruebas
+    register_user("alexdesousa03", "D1n054uR1o")
 
     # 2. Login
-    token = login("alexdesousa", "D1n054uR1o")
+    # register_user("alexdesousa", "D1n054uR1o") # Usuario usado en pruebas
+    # register_user("alexdesousa02", "D1n054uR1o") # Usuario usado en pruebas    
+    token = login("alexdesousa03", "D1n054uR1o")
 
     # 3. Crear nota
     note = create_note(token, "Mi primera nota de Prueba", "Contenido de la prueba")
