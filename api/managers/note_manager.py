@@ -32,7 +32,7 @@ class NoteManager:
         )
 
     def get_note_by_id(self, note_id: int, user_id: int):
-        """"Devuelve una nota espefica si pertenece al usuario"""
+        """Devuelve una nota espefica si pertenece al usuario"""
         return (
             self.db.query(models.Note)
             .filter(models.Note.id == note_id, models.Note.owner_id == user_id)
@@ -40,7 +40,7 @@ class NoteManager:
         )
 
     def update_note(self, note_id: int, note_data: schemas.NoteCreate, user_id: int):
-        """""Actualiza una nota existente de los usuarios""""
+        """"Actualiza una nota existente de los usuarios"""
         note = self.get_note_by_id(note_id, user_id)
         if not note:
             return None
