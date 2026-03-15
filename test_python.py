@@ -51,6 +51,15 @@ def delete_note(token, note_id):
     print("Status:", response.status_code)
     print("Respuesta:", response.text)
 
+def create_invalid_note_test(token):
+    print("*** Prueba Negativa: Intentando crear una nota sin título alguno ***")
+    headers = {"Authorization": f"Bearer {token}"}
+    data = {"title": "", "content": "Contenido inválido", "expires_at": None}
+    response = requests.post(f"{BASE_URL}/notes/", json=data, headers=headers)
+    print("Status:", response.status_code)
+    print("Respuesta:", response.text)
+    return response
+
 if __name__ == "__main__":
     # 1. Registrar usuario
     # register_user("alexdesousa", "D1n054uR1o") # Usuario usado en pruebas
@@ -73,3 +82,6 @@ if __name__ == "__main__":
 
     # 6. Eliminar nota
     delete_note(token, note["id"])
+
+    # 7. Prueba negativa (nota inválida)
+    create_invalid_note_test(token)
